@@ -9,6 +9,8 @@ const appendSeconds = document.getElementById("seconds");
 
 buttonStart.addEventListener("click",
   () => {
+    buttonStart.disabled = true;
+    buttonStop.disabled = false;
     console.log(`Start time: ${seconds}:${tens}`);
     TimerConstructor.prototype.start = `${seconds}.${tens}`;
     timer = setInterval( () => {
@@ -34,6 +36,8 @@ buttonStop.addEventListener("click",
     clearInterval(timer);
     TimerConstructor.prototype.stop =  `${seconds}.${tens}`;
     interval = parseFloat(TimerConstructor.prototype.stop) - parseFloat(TimerConstructor.prototype.start);
+    buttonStart.disabled = false;
+    buttonStop.disabled = true;
     console.log(`Stop time: ${seconds}:${tens}`);
     console.log('Interval: ', interval)
   }
